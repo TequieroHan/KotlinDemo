@@ -1,0 +1,26 @@
+ext {
+    As = [
+            compileSdkVersion: 28,
+            applicationId    : "blcs.lwb.utils",
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 6,
+            versionName      : "1.0.6",
+    ]
+    Vs = [
+            coreKtx         : "1.3.2",
+            appcompat       : "1.2.0",
+            junit           : "4.12",
+            testExt         : "1.1.2",
+            espressoCore    : "3.3.0",
+            constraintlayout: "2.0.1"
+    ]
+    Dp = [
+            Core        : "androidx.core:core-ktx:$Vs.coreKtx",
+            appcompat   : "androidx.appcompat:appcompat:$Vs.appcompat",
+            junit       : "junit:junit:$Vs.junit",
+            testExt     : "androidx.test.ext:junit:$Vs.testExt",
+            espressoCore: "androidx.test.espresso:espresso-core:$Vs.espressoCore",
+            constraint  : "androidx.constraintlayout:constraintlayout:$Vs.constraintlayout"
+    ]
+}
