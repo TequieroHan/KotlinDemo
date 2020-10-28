@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">KotlinBasics</string>
+    <string name="hint_exit_application">再按一次退出程序</string>
+    <string name="n_activity">activity</string>
+    <string name="n_app_name">应用名称：</string>
+    <string name="n_app_version">应用版本：</string>
+    <string name="n_app_version_code">应用版本号:</string>
+    <string name="n_model">型号</string>
+    <string name="n_device">设备名:</string>
+    <string name="n_android_version">安卓版本:</string>
+    <string name="n_manufacturer">生产厂商:</string>
+    <string name="n_version_sdk">Android SDK版本：</string>
+    <string name="n_hardware">硬件名:</string>
 </resources>

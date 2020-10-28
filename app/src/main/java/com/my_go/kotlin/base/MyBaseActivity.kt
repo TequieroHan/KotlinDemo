@@ -36,8 +36,8 @@ abstract class MyBaseActivity : BaseActivity() {
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (ev?.action == MotionEvent.ACTION_DOWN) {
             val v = currentFocus as? View;
-            if (ToolUtils.isShouldHideKeyboard(v, ev)) {
-                ToolUtils.hideSoftInput(this);
+            if (ToolUtils.getInst(this).isShouldHideKeyboard(v, ev)) {
+                ToolUtils.getInst(this).hideSoftInput(this);
             }
         }
         return super.dispatchTouchEvent(ev)
