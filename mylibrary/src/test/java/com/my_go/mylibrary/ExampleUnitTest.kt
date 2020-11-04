@@ -1,5 +1,7 @@
 package com.my_go.mylibrary
 
+import android.util.Log
+import com.my_go.mylibrary.utils.StringUtils
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,6 +14,6 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        System.out.println(StringUtils.getPrice("12"))
     }
 }

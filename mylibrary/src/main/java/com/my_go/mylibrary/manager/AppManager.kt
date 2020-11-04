@@ -62,7 +62,7 @@ class AppManager {
             when {
                 (null != pmIntent && null != pmIntent.component) -> {
                     try {
-                        return Class.forName(pmIntent.component.className) as Class<out Activity>?
+                        return Class.forName(pmIntent.component!!.className) as Class<out Activity>?
                     } catch (ex: Exception) {
                         ex.printStackTrace()
                     }

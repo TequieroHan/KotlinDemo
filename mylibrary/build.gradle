@@ -20,15 +20,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation Dp.Core
-    implementation Dp.appcompat
-    testImplementation  Dp.junit
+    api fileTree(dir: "libs", include: ["*.jar"])
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api Dp.Core
+    api Dp.constraint
+    api Dp.appcompat
+    testImplementation Dp.junit
     androidTestImplementation Dp.testExt
     androidTestImplementation Dp.espressoCore
-    implementation project(':screenMatch')
+    api Dp.eventbus
+    api project(':screenMatch')
 }

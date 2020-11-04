@@ -2,14 +2,19 @@ package com.my_go.mylibrary.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.my_go.mylibrary.manager.AppManager
+import org.greenrobot.eventbus.EventBus
 
 /**
  * Create by Package com.my_go.mylibrary.base
  * Created by 毛勇 on 2020/10/26
  * Current System Time 21:26
- * Describe:
+ * Describe: T : BaseView 等同于 T extends BaseView
  */
-abstract class BaseActivity : AppCompatActivity() {
+open abstract class BaseActivity<T : BaseView, P : BasePresenter<T>> : AppCompatActivity(),
+    BaseView {
+
+    var presenter: P? = null // P层 自己在强转
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +24,23 @@ abstract class BaseActivity : AppCompatActivity() {
             initParam(intent.extras);
         }
         setContentView(bindLayout())
+        AppManager.getInstance()?.addActivity(this)
+        presenter = bindPresenter();
+        when {
+            null != presenter -> {
+                presenter?.onAttach(this as T)
+            }
+        }
         initView();
         initData();
     }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    //绑定P层
+    abstract fun bindPresenter(): P?
 
     abstract fun bindLayout(): Int;
 
@@ -40,4 +59,15 @@ abstract class BaseActivity : AppCompatActivity() {
      */
     abstract fun initData();
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        when {
+            null != presenter -> {
+                presenter?.onDetch()//解绑
+                presenter = null
+            }
+        }
+        AppManager.getInstance()?.finishActivity(this)
+    }
 }
