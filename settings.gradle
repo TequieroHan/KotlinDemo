@@ -1,3 +1,4 @@
+include ':mvvmlibrary'
 include ':screenMatch'
 include ':mylibrary'
 include ':app'

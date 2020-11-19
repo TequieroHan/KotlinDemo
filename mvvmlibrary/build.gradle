@@ -1,0 +1,48 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion As.compileSdkVersion
+    defaultConfig {
+        minSdkVersion As.minSdkVersion
+        targetSdkVersion As.targetSdkVersion
+        versionCode As.versionCode
+        versionName As.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    api fileTree(dir: "libs", include: ["*.jar"])
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api Dp.Core
+    api Dp.constraint
+    api Dp.appcompat
+    testImplementation Dp.junit
+    androidTestImplementation Dp.testExt
+    androidTestImplementation Dp.espressoCore
+    api Dp.eventbus
+    api Dp.lifecycleLivedata
+    api Dp.lifecycleViewmodel
+    api Dp.lifecycleRuntime
+    api Dp.lifecycleExtensions
+    api Dp.lifecycleCommonJava8
+    api Dp.lifecycleCompiler
+    api Dp.retrofit
+    api Dp.retrofitConverterGson
+    api Dp.retrofitConverterScalars
+    api project(':screenMatch')
+
+}

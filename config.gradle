@@ -13,24 +13,43 @@ ext {
             junit           : "4.12",
             testExt         : "1.1.2",
             espressoCore    : "3.3.0",
-            constraintlayout: "2.0.1",
+            constraintlayout: "2.0.4",
             eventbus        : "3.2.0",
             banner          : "2.1.0",
             viewPager2      : "1.0.0",
             glide           : "4.11.0",
-            APCompiler      : "4.11.0"
+            APCompiler      : "4.11.0",
+            lifecycleVersion: "2.2.0",
+            //retrofit
+            retrofit        : "2.9.0",
+            //loadsir:https://github.com/KingJA/LoadSir
+            loadsir         : "1.3.8"
+
     ]
     Dp = [
-            Core        : "androidx.core:core-ktx:$Vs.coreKtx",
-            appcompat   : "androidx.appcompat:appcompat:$Vs.appcompat",
-            junit       : "junit:junit:$Vs.junit",
-            testExt     : "androidx.test.ext:junit:$Vs.testExt",
-            espressoCore: "androidx.test.espresso:espresso-core:$Vs.espressoCore",
-            constraint  : "androidx.constraintlayout:constraintlayout:$Vs.constraintlayout",
-            eventbus    : "org.greenrobot:eventbus:$Vs.eventbus",
-            banner      : "com.youth.banner:banner:$Vs.banner",
-            viewPager2  : "androidx.viewpager2:viewpager2:$Vs.viewPager2",
-            glide       : "com.github.bumptech.glide:glide:$Vs.glide",
-            ApCompiler  : "com.github.bumptech.glide:compiler:$Vs.APCompiler"
+            Core                    : "androidx.core:core-ktx:$Vs.coreKtx",
+            appcompat               : "androidx.appcompat:appcompat:$Vs.appcompat",
+            junit                   : "junit:junit:$Vs.junit",
+            testExt                 : "androidx.test.ext:junit:$Vs.testExt",
+            espressoCore            : "androidx.test.espresso:espresso-core:$Vs.espressoCore",
+            constraint              : "androidx.constraintlayout:constraintlayout:$Vs.constraintlayout",
+            eventbus                : "org.greenrobot:eventbus:$Vs.eventbus",
+            banner                  : "com.youth.banner:banner:$Vs.banner",
+            viewPager2              : "androidx.viewpager2:viewpager2:$Vs.viewPager2",
+            glide                   : "com.github.bumptech.glide:glide:$Vs.glide",
+            ApCompiler              : "com.github.bumptech.glide:compiler:$Vs.APCompiler",
+            //TODO:lifecycle 生命观察者--------------------------------
+            //TODO:lifecycle 减少崩溃和内存泄漏--------------------------------
+            lifecycleLivedata       : "androidx.lifecycle:lifecycle-livedata-ktx:$Vs.lifecycleVersion",
+            lifecycleViewmodel      : "androidx.lifecycle:lifecycle-viewmodel-ktx:$Vs.lifecycleVersion",
+            lifecycleRuntime        : "androidx.lifecycle:lifecycle-runtime:$Vs.lifecycleVersion",
+            lifecycleExtensions     : "androidx.lifecycle:lifecycle-extensions:$Vs.lifecycleVersion",
+            lifecycleCommonJava8    : "androidx.lifecycle:lifecycle-common-java8:$Vs.lifecycleVersion",
+            lifecycleCompiler       : "androidx.lifecycle:lifecycle-compiler:$Vs.lifecycleVersion",
+            //retrofit
+            retrofit                : "com.squareup.retrofit2:retrofit:$Vs.retrofit",
+            retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:$Vs.retrofit",
+            retrofitConverterScalars: "com.squareup.retrofit2:converter-scalars:$Vs.retrofit",
+            loadsir                 : "com.kingja.loadsir:loadsir:$Vs.loadsir"
     ]
 }

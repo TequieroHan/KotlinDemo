@@ -24,15 +24,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    api project(':mylibrary')
+    api project(':mvvmlibrary')
     implementation Dp.constraint
     implementation Dp.banner
     implementation Dp.viewPager2
     implementation Dp.glide
     annotationProcessor Dp.ApCompiler
+    implementation Dp.loadsir
     testImplementation Dp.junit
 }
