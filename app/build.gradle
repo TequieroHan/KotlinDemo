@@ -8,10 +8,11 @@ android {
     defaultConfig {
         minSdkVersion As.minSdkVersion
         targetSdkVersion As.targetSdkVersion
-        applicationId "com.my_go.kotlin"
+        applicationId As.applicationId
         versionCode As.versionCode
         versionName As.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary=true
     }
 
     buildTypes {
@@ -24,19 +25,43 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    //
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
     dataBinding {
         enabled true
+    }
+    //使用Kotlin实验特性
+    androidExtensions {
+        experimental = true
     }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     api project(':mvvmlibrary')
+    api project(':load')
+    implementation Dp.cardview
+    implementation Dp.utilCodex
+    implementation Dp.dataStoreProto
+    implementation Dp.dataStorePre
+    implementation Dp.mmkv
     implementation Dp.constraint
-    implementation Dp.banner
+    implementation Dp.bannerViewPager
     implementation Dp.viewPager2
     implementation Dp.glide
     annotationProcessor Dp.ApCompiler
+    //dialog
+    implementation Dp.materialDialogsCore
+    implementation Dp.materialDialogsInput
+    implementation Dp.materialDialogsFiles
+    implementation Dp.materialDialogsColor
+    implementation Dp.materialDialogsDatetime
+    implementation Dp.materialDialogsBottomSheets
+    implementation Dp.materialDialogsLifecycle
+    //MagicIndicator
     implementation Dp.loadsir
     testImplementation Dp.junit
 }

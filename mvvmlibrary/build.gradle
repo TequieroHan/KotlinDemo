@@ -33,16 +33,19 @@ dependencies {
     testImplementation Dp.junit
     androidTestImplementation Dp.testExt
     androidTestImplementation Dp.espressoCore
-    api Dp.eventbus
-    api Dp.lifecycleLivedata
-    api Dp.lifecycleViewmodel
+    //lifecycle
     api Dp.lifecycleRuntime
-    api Dp.lifecycleExtensions
     api Dp.lifecycleCommonJava8
+    api Dp.lifecycleExtensions
+    // liveData
+    api Dp.lifecycleLivedata
+    // viewModel
+    api Dp.lifecycleViewmodel
     api Dp.lifecycleCompiler
     api Dp.retrofit
     api Dp.retrofitConverterGson
     api Dp.retrofitConverterScalars
+    api project(':magicindicator')
     api project(':screenMatch')
 
 }

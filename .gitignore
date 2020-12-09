@@ -12,3 +12,8 @@
 /captures
 .externalNativeBuild
 .cxx
+/app/build
+/load/build
+/magicindicator/build
+/mvvmlibrary/build
+/screenMatch/build

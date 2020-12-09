@@ -1,3 +1,5 @@
+include ':magicindicator'
+include ':load'
 include ':mvvmlibrary'
 include ':screenMatch'
 include ':mylibrary'

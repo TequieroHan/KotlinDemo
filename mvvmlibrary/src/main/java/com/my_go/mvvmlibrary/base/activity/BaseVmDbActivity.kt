@@ -16,7 +16,7 @@ abstract class BaseVmDbActivity<VM : BaseViewModel, DB : ViewDataBinding> : Base
     lateinit var mDatabind: DB;
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        userDataBind(true)
+        userDataBinding(true)
         super.onCreate(savedInstanceState)
     }
 

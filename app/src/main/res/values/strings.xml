@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">KotlinBasics</string>
+    <string name="hint_what_disconnection">怎么断网了!</string>
+    <string name="nav_home">首页</string>
 </resources>

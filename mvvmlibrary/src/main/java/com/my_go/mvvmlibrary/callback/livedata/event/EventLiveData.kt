@@ -16,7 +16,7 @@ import java.util.*
  * TODO://4.让非入侵设计成为可能，遵循开闭原则.用于限制从 Activity/Fragment 推送数据，推送数据务必通过唯一可信源来分发，
  */
 
-class EventLiveData<T> : MutableLiveData<T>() {
+open class EventLiveData<T> : MutableLiveData<T>() {
     private var isCleaning = false //是否清除
     private var hasHandled = true//是否处理
     private var isDelaying = false//是否延迟

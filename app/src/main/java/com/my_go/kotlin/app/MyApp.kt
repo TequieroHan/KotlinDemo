@@ -1,7 +1,10 @@
 package com.my_go.kotlin.app
 
-import android.hardware.Camera.ErrorCallback
+import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
+import com.my_go.kotlin.app.weight.loadcallback.EmptyCallback
+import com.my_go.kotlin.app.weight.loadcallback.ErrorCallback
+import com.my_go.kotlin.app.weight.loadcallback.LoadingCallback
 import com.my_go.mvvmlibrary.base.BaseApp
 
 
@@ -21,11 +24,11 @@ class MyApp : BaseApp() {
         super.onCreate()
         instance = this
         //界面加载管理 初始化
-//        LoadSir.beginBuilder()
-//            .addCallback( ErrorCallback())//添加各种状态页
-//            .addCallback( EmptyCallback())
-//            .addCallback( LoadingCallback())
-//            .addCallback( TimeoutCallback())
-//            .addCallback( CustomCallback());
+        LoadSir.beginBuilder()
+            .addCallback(ErrorCallback())//添加各种状态页
+            .addCallback(EmptyCallback())
+            .addCallback(LoadingCallback())
+            .setDefaultCallback(SuccessCallback::class.java)
+            .commit()
     }
 }

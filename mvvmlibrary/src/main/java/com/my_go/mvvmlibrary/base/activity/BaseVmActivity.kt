@@ -23,7 +23,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
      */
     private var isUserDb = false
 
-    lateinit var viewModel: VM
+    lateinit var mViewModel: VM
 
     abstract fun layoutId(): Int
 
@@ -35,21 +35,18 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        when (isUserDb) {
-            false -> {
-                setContentView(layoutId())
-            }
-            true -> {
-                initDataBind()
-            }
+        if (!isUserDb) {
+            setContentView(layoutId())
+        } else {
+            initDataBind()
         }
         init(savedInstanceState)
     }
 
     private fun init(savedInstanceState: Bundle?) {
-        viewModel = createViewModel()
+        mViewModel = createViewModel()
         registerUiChange()
-        init(savedInstanceState)
+        initView(savedInstanceState)//初始化视图方法
         createObserver()
         NetworkStateManager.instance.mNetworkStateCallback.observe(
             this,
@@ -74,9 +71,11 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
      */
     private fun registerUiChange() {
         //显示弹窗
-        viewModel.loadingChange.showLoading.observe(this, Observer { showLoading(it) })
+        mViewModel.loadingChange.showLoading.observe(this, Observer {
+            showLoading(it)
+        })
         //关闭弹窗
-        viewModel.loadingChange.dismissLoading.observe(this, Observer { dismissLoading() })
+        mViewModel.loadingChange.dismissLoading.observe(this, Observer { dismissLoading() })
     }
 
     /**
@@ -89,7 +88,7 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
     /**
      * 是否需要使用DataBinding 供子类BaseVmDbActivity修改，用户请慎动
      */
-    fun userDataBind(isUserDb: Boolean) {
+    fun userDataBinding(isUserDb: Boolean) {
         this.isUserDb = isUserDb
     }
 
@@ -98,6 +97,13 @@ abstract class BaseVmActivity<VM : BaseViewModel> : AppCompatActivity() {
      */
     open fun initDataBind() {
 
+    }
+
+    protected fun addLoadingObserve(vararg viewModels: BaseViewModel) {
+        viewModels.forEach { viewModel ->
+            viewModel.loadingChange.showLoading.observe(this, Observer { showLoading(it) })
+            viewModel.loadingChange.dismissLoading.observe(this, Observer { dismissLoading() })
+        }
     }
 
 }
